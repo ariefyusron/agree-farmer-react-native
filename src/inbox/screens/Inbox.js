@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import { Container } from "../../public/components";
+import { Header } from "../components";
 
 class Inbox extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Inbox extends Component {
   render() {
     return (
       <Container>
+        <Header />
         <View style={styles.container}>
           <Text>Inbox</Text>
         </View>
