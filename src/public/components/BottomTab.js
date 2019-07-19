@@ -24,9 +24,15 @@ const BottomTab = props => (
         <Icon
           name="home-outline"
           size={28}
-          color={props.navigation.state.index === 0 ? color.green : "#818181"}
+          color={props.navigation.state.index === 0 ? color.green : "#9f9f9f"}
         />
-        <Text style={{ color: "#818181" }}>Home</Text>
+        <Text
+          style={{
+            color: props.navigation.state.index === 0 ? "#818181" : "#9f9f9f"
+          }}
+        >
+          Home
+        </Text>
       </>
     </TouchableHighlight>
     <TouchableHighlight
@@ -40,7 +46,13 @@ const BottomTab = props => (
           size={28}
           color={props.navigation.state.index === 1 ? color.green : "#9f9f9f"}
         />
-        <Text style={{ color: "#9f9f9f" }}>Inbox</Text>
+        <Text
+          style={{
+            color: props.navigation.state.index === 1 ? "#818181" : "#9f9f9f"
+          }}
+        >
+          Inbox
+        </Text>
       </>
     </TouchableHighlight>
     <TouchableHighlight
@@ -54,7 +66,13 @@ const BottomTab = props => (
           size={28}
           color={props.navigation.state.index === 2 ? color.green : "#9f9f9f"}
         />
-        <Text style={{ color: "#9f9f9f" }}>Pengaturan</Text>
+        <Text
+          style={{
+            color: props.navigation.state.index === 2 ? "#818181" : "#9f9f9f"
+          }}
+        >
+          Pengaturan
+        </Text>
       </>
     </TouchableHighlight>
   </View>
