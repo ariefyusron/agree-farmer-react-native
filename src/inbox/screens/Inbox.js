@@ -16,6 +16,8 @@ class Inbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalVisible: false,
+      backgroundModalVisible: false,
       refreshing: false,
       data: [
         {
@@ -30,7 +32,7 @@ class Inbox extends Component {
           content: "Info harga terbaru untuk jahe",
           date: "18 Jul 2019",
           time: "15:28",
-          read: true
+          read: false
         },
         {
           title: "Info Harga",
@@ -72,7 +74,7 @@ class Inbox extends Component {
           content: "Info harga terbaru untuk jahe",
           date: "15 Jul 2019",
           time: "15:28",
-          read: true
+          read: false
         },
         {
           title: "Info Harga",
@@ -114,6 +116,8 @@ class Inbox extends Component {
     setTimeout(() => this.setState({ refreshing: false }), 1000);
   };
 
+  renderHeader = () => <Header />;
+
   renderItem = ({ item, index }) => (
     <View>
       {item.date !== this.state.data[index === 0 ? index : index - 1].date ||
@@ -149,28 +153,32 @@ class Inbox extends Component {
         </View>
       ) : null}
       <View
-        style={{
-          borderBottomColor: "#dbdbdb",
-          borderBottomWidth: 1,
-          borderTopColor: "#dbdbdb",
-          borderTopWidth: 1,
-          padding: 15,
-          flexDirection: "row"
-        }}
+        style={[
+          {
+            borderBottomColor: "#dbdbdb",
+            borderBottomWidth: 1,
+            borderTopColor: "#dbdbdb",
+            borderTopWidth: 1,
+            padding: 15,
+            flexDirection: "row"
+          },
+          !item.read ? { backgroundColor: "rgba(28, 165, 80, 0.5)" } : null
+        ]}
       >
         <View
-          style={{
-            height: 45,
-            width: 45,
-            borderRadius: 45 / 2,
-            backgroundColor: color.green,
-            justifyContent: "center",
-            alignItems: "center",
-            opacity: 0.5
-          }}
+          style={[
+            {
+              height: 45,
+              width: 45,
+              borderRadius: 45 / 2,
+              justifyContent: "center",
+              alignItems: "center"
+            },
+            item.read ? { backgroundColor: color.green, opacity: 0.5 } : null
+          ]}
         >
           <Icon
-            name="email-open-outline"
+            name={item.read ? "email-open-outline" : "email-outline"}
             color="#fff"
             size={33}
             style={{ marginTop: 5 }}
@@ -225,7 +233,7 @@ class Inbox extends Component {
               />
             }
             sections={[
-              { title: "", data: [""], renderItem: Header },
+              { title: "", data: [""], renderItem: this.renderHeader },
               {
                 title: "",
                 data: this.state.data,

@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import color from "../../public/config/color.json";
 
-const Header = () => (
+const Header = ({ handleVisible }) => (
   <View
     style={{
       height: 70,
@@ -31,7 +31,7 @@ const Header = () => (
           paddingHorizontal: "5%"
         }}
         underlayColor="rgba(0,0,0,0.1)"
-        onPress={() => alert("Halo")}
+        onPress={handleVisible}
       >
         <Icon name="sort-variant" color="#fff" size={25} />
       </TouchableHighlight>
