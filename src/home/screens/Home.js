@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text, Image, SectionList } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { Container } from "../../public/components";
 import { Profile, Keuanganku, Lahanku } from "../components";
@@ -149,7 +150,7 @@ class Home extends Component {
                 alignItems: "center"
               }}
             >
-              <Text>ic</Text>
+              <Icon name={"chevron-right"} color="#bbbbbb" size={25} />
             </View>
           </View>
         </View>

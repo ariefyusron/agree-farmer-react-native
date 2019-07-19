@@ -1,19 +1,25 @@
 import React from "react";
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import {
+  createMaterialTopTabNavigator,
+  createAppContainer
+} from "react-navigation";
 
 import Home from "../../home/screens/Home";
 import Inbox from "../../inbox/screens/Inbox";
 import Setting from "../../setting/screens/Setting";
 import { BottomTab } from "../components";
 
-const bottomTab = createBottomTabNavigator(
+const bottomTab = createMaterialTopTabNavigator(
   {
     Home,
     Inbox,
     Setting
   },
   {
-    tabBarComponent: props => <BottomTab {...props} />
+    tabBarComponent: props => <BottomTab {...props} />,
+    tabBarPosition: "bottom",
+    lazy: true,
+    swipeEnabled: false
   }
 );
 
