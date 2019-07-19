@@ -57,6 +57,16 @@ class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.navigation.setParams({
+      scrollToTop: this.scrollToTop
+    });
+  }
+
+  scrollToTop = () => {
+    this.list.scrollToLocation({ sectionIndex: 0, itemIndex: 0 });
+  };
+
   onRefresh = async () => {
     await this.setState({ refreshing: true });
     setTimeout(() => this.setState({ refreshing: false }), 1000);
@@ -186,6 +196,9 @@ class Home extends Component {
       <Container>
         <View style={styles.container}>
           <SectionList
+            ref={list => {
+              this.list = list;
+            }}
             refreshControl={
               <RefreshControl
                 refreshing={this.state.refreshing}
