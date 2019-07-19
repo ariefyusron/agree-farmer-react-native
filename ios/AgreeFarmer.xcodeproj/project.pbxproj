@@ -20,6 +20,7 @@
 		466F267DE250CD5958021492 /* libPods-AgreeFarmerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0342B8FCA411FE2A03FA90 /* libPods-AgreeFarmerTests.a */; };
 		D3E7E1668E2D7E7F92F77C1D /* libPods-AgreeFarmer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41228A7B439641ECB6E56F32 /* libPods-AgreeFarmer.a */; };
 		E80956F85AE25A0E88A15462 /* libPods-AgreeFarmer-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D88C9D7A654A28AAB8D2DF /* libPods-AgreeFarmer-tvOS.a */; };
+		FAE921CE22E1A91600ECA988 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = FAE921CD22E1A91600ECA988 /* Fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E8F7E6701B9A8BBFE10C6BDE /* Pods-AgreeFarmer-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgreeFarmer-tvOS.release.xcconfig"; path = "Target Support Files/Pods-AgreeFarmer-tvOS/Pods-AgreeFarmer-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		FAE921CD22E1A91600ECA988 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		FB0342B8FCA411FE2A03FA90 /* libPods-AgreeFarmerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgreeFarmerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD61F3581B1C918DE4AFEAE /* Pods-AgreeFarmer-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgreeFarmer-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-AgreeFarmer-tvOS/Pods-AgreeFarmer-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* AgreeFarmer */ = {
 			isa = PBXGroup;
 			children = (
+				FAE921CD22E1A91600ECA988 /* Fonts */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +164,6 @@
 				3B238D5C0A171ECD06B0266F /* Pods-AgreeFarmerTests.debug.xcconfig */,
 				726D05373189CDA7C9FD6531 /* Pods-AgreeFarmerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -336,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE921CE22E1A91600ECA988 /* Fonts in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
