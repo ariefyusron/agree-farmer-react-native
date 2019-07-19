@@ -41,7 +41,11 @@ const BottomTab = props => (
     </TouchableHighlight>
     <TouchableHighlight
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      onPress={() => props.jumpTo("Inbox")}
+      onPress={() => {
+        props.navigation.state.index === 1
+          ? props.navigation.state.routes[1].params.scrollToTop()
+          : props.jumpTo("Inbox");
+      }}
       underlayColor="#f4f4f4"
     >
       <>
