@@ -1,11 +1,21 @@
 import React from "react";
 import { View, Text } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import color from "../../public/config.js/color.json";
 
 const Lahanku = () => (
   <View style={{ width: "100%", alignItems: "center", paddingVertical: 5 }}>
-    <View style={{ width: "90%", backgroundColor: "#fff", borderRadius: 5 }}>
+    <View
+      style={{
+        width: "90%",
+        backgroundColor: "#fff",
+        borderRadius: 5,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
+        shadowRadius: 1
+      }}
+    >
       <View
         style={{
           backgroundColor: color.green,
@@ -22,14 +32,10 @@ const Lahanku = () => (
           alignItems: "center"
         }}
       >
-        <View style={{ flexDirection: "row", width: "80%" }}>
-          <Text
-            style={{
-              color: color.green
-            }}
-          >
-            ic
-          </Text>
+        <View
+          style={{ flexDirection: "row", width: "80%", alignItems: "center" }}
+        >
+          <Icon name="flower-tulip-outline" color={color.green} size={25} />
           <Text style={{ color: color.green, marginLeft: 10 }}>Lahanku</Text>
         </View>
       </View>

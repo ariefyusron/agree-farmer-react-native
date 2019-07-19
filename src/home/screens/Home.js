@@ -68,14 +68,24 @@ class Home extends Component {
             </Text>
           </View>
         ) : null}
-        <View style={{ backgroundColor: "#fff", borderRadius: 5 }}>
+        <View
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: 5,
+            shadowOffset: { width: 0, height: 0 },
+            shadowOpacity: 0.1,
+            shadowRadius: 1
+          }}
+        >
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "row", flex: 1 }}>
               <View
                 style={{
-                  backgroundColor: color.backgroundContainer,
+                  backgroundColor: "#f4f4f4",
                   width: 90,
-                  height: 110
+                  height: 110,
+                  borderBottomLeftRadius: 5,
+                  borderTopLeftRadius: 5
                 }}
               >
                 <Image

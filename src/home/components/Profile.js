@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import color from "../../public/config.js/color.json";
 
@@ -11,7 +12,10 @@ const Profile = () => (
           height: 90,
           width: 90,
           borderRadius: 90 / 2,
-          backgroundColor: color.backgroundContainer
+          backgroundColor: color.backgroundContainer,
+          shadowOffset: { width: 0, height: 0 },
+          shadowOpacity: 0.3,
+          shadowRadius: 3
         }}
       >
         <Image
@@ -59,10 +63,13 @@ const Profile = () => (
             paddingVertical: 5,
             borderRadius: 20,
             alignItems: "center",
-            width: "50%"
+            width: "50%",
+            flexDirection: "row",
+            justifyContent: "center"
           }}
         >
-          <Text style={{ color: "#fff" }}>-</Text>
+          <Icon name="trophy" color="#f9d321" size={16} />
+          <Text style={{ color: "#fff", marginLeft: 5 }}>-</Text>
         </View>
       </View>
     </View>

@@ -5,8 +5,16 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import color from "../config.js/color.json";
 
 const BottomTab = props => (
-  <View style={{ backgroundColor: "#fff", height: 80, flexDirection: "row" }}>
-    {console.log(props)}
+  <View
+    style={{
+      backgroundColor: "#fff",
+      height: 80,
+      flexDirection: "row",
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0.3,
+      shadowRadius: 3
+    }}
+  >
     <TouchableHighlight
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       onPress={() => props.jumpTo("Home")}
@@ -30,7 +38,7 @@ const BottomTab = props => (
         <Icon
           name="email-outline"
           size={28}
-          color={props.navigation.state.index === 1 ? color.green : "#818181"}
+          color={props.navigation.state.index === 1 ? color.green : "#9f9f9f"}
         />
         <Text style={{ color: "#9f9f9f" }}>Inbox</Text>
       </>
@@ -44,7 +52,7 @@ const BottomTab = props => (
         <Icon
           name="settings-outline"
           size={28}
-          color={props.navigation.state.index === 2 ? color.green : "#818181"}
+          color={props.navigation.state.index === 2 ? color.green : "#9f9f9f"}
         />
         <Text style={{ color: "#9f9f9f" }}>Pengaturan</Text>
       </>
