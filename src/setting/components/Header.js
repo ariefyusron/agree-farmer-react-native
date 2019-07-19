@@ -1,13 +1,12 @@
 import React from "react";
-import { View, Text, TouchableHighlight } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { View, Text } from "react-native";
 
 import color from "../../public/config/color.json";
 
-const Header = ({ handleVisible }) => (
+const Header = () => (
   <View
     style={{
-      height: 70,
+      height: 80,
       backgroundColor: color.green,
       alignItems: "center"
     }}
@@ -23,20 +22,9 @@ const Header = ({ handleVisible }) => (
     >
       <View style={{ paddingLeft: "5%" }}>
         <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
-          Inbox
+          Pengaturan
         </Text>
       </View>
-      <TouchableHighlight
-        style={{
-          height: "100%",
-          justifyContent: "center",
-          paddingHorizontal: "5%"
-        }}
-        underlayColor="rgba(0,0,0,0.1)"
-        onPress={handleVisible}
-      >
-        <Icon name="sort-variant" color="#fff" size={25} />
-      </TouchableHighlight>
     </View>
   </View>
 );

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { Container } from "../../public/components";
+import { Header } from "../components";
+import color from "../../public/config/color.json";
 
 class Setting extends Component {
   constructor(props) {
@@ -11,9 +14,37 @@ class Setting extends Component {
   render() {
     return (
       <Container>
-        <View style={styles.container}>
-          <Text>Setting</Text>
-        </View>
+        <ScrollView style={styles.container}>
+          <Header />
+          <View>
+            <View
+              style={{
+                padding: 20,
+                borderBottomColor: "#dbdbdb",
+                borderBottomWidth: 1
+              }}
+            >
+              <Text style={{ fontWeight: "bold", color: "#636363" }}>
+                Tentang
+              </Text>
+              <View style={{ marginTop: 10 }}>
+                <Text style={{ color: "#636363" }}>FAQ</Text>
+              </View>
+            </View>
+            <View
+              style={{
+                padding: 20,
+                flexDirection: "row",
+                alignItems: "center"
+              }}
+            >
+              <Icon name="logout" size={20} color={color.green} />
+              <View style={{ paddingLeft: 5 }}>
+                <Text>Keluar</Text>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
       </Container>
     );
   }
@@ -21,7 +52,8 @@ class Setting extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#fff"
   }
 });
 
