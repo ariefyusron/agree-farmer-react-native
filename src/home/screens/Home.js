@@ -11,7 +11,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { Container } from "../../public/components";
 import { Profile, Keuanganku, Lahanku } from "../components";
-import color from "../../public/config.js/color.json";
+import color from "../../public/config/color.json";
 
 class Home extends Component {
   constructor(props) {

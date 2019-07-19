@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import color from "../config.js/color.json";
+import color from "../config/color.json";
 
 const BottomTab = props => (
   <View

@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 
-import color from "../config.js/color.json";
+import color from "../config/color.json";
 
 const Container = props => (
   <SafeAreaView style={styles.container}>{props.children}</SafeAreaView>

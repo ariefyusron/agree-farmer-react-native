@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import color from "../../public/config.js/color.json";
+import color from "../../public/config/color.json";
 
 const Kuanganku = () => (
   <View style={{ width: "100%", alignItems: "center", paddingVertical: 5 }}>

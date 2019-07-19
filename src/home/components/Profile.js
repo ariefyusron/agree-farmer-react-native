@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import color from "../../public/config.js/color.json";
+import color from "../../public/config/color.json";
 
 const Profile = () => (
   <View style={{ alignItems: "center", paddingVertical: 30 }}>
