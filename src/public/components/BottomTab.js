@@ -49,11 +49,28 @@ const BottomTab = props => (
       underlayColor="#f4f4f4"
     >
       <>
-        <Icon
-          name="email-outline"
-          size={28}
-          color={props.navigation.state.index === 1 ? color.green : "#9f9f9f"}
-        />
+        <View>
+          <Icon
+            name="email-outline"
+            size={28}
+            color={props.navigation.state.index === 1 ? color.green : "#9f9f9f"}
+          />
+          <View
+            style={{
+              backgroundColor: "red",
+              position: "absolute",
+              width: 20,
+              height: 20,
+              borderRadius: 20 / 2,
+              top: -5,
+              right: -5,
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 10 }}>2</Text>
+          </View>
+        </View>
         <Text
           style={{
             color: props.navigation.state.index === 1 ? "#818181" : "#9f9f9f"
