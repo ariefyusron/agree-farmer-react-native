@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text, Image, SectionList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  SectionList,
+  RefreshControl
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { Container } from "../../public/components";
@@ -10,6 +17,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      refreshing: false,
       data: [
         {
           title: "Akar Wangi",
@@ -48,6 +56,11 @@ class Home extends Component {
       ]
     };
   }
+
+  onRefresh = async () => {
+    await this.setState({ refreshing: true });
+    setTimeout(() => this.setState({ refreshing: false }), 1000);
+  };
 
   renderItem = ({ item, index }) => (
     <View
@@ -173,6 +186,12 @@ class Home extends Component {
       <Container>
         <View style={styles.container}>
           <SectionList
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.refreshing}
+                onRefresh={this.onRefresh}
+              />
+            }
             sections={[
               { title: "", data: [""], renderItem: Profile },
               { title: "", data: [""], renderItem: Keuanganku },
