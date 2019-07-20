@@ -4,7 +4,13 @@ import {
   Text,
   StyleSheet,
   SectionList,
-  RefreshControl
+  RefreshControl,
+  Modal,
+  Animated,
+  Dimensions,
+  TouchableOpacity,
+  TouchableHighlight,
+  FlatList
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -16,9 +22,18 @@ class Inbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalValue: new Animated.Value(Dimensions.get("window").height),
       modalVisible: false,
       backgroundModalVisible: false,
       refreshing: false,
+      activeFilter: [],
+      filter: [
+        "Inside",
+        "Rekomendasi Panen",
+        "Transaksi",
+        "Rencana Panen",
+        "Info Harga"
+      ],
       data: [
         {
           title: "Info Harga",
@@ -116,7 +131,32 @@ class Inbox extends Component {
     setTimeout(() => this.setState({ refreshing: false }), 1000);
   };
 
-  renderHeader = () => <Header />;
+  async hanldeModal() {
+    await this.setState({ modalVisible: true });
+    Animated.timing(this.state.modalValue, {
+      toValue: 0,
+      duration: 200
+    }).start();
+  }
+
+  hanldeModalFalse() {
+    this.setState({
+      modalVisible: false,
+      modalValue: new Animated.Value(Dimensions.get("window").height)
+    });
+  }
+
+  activeFilter(index) {
+    if (!this.state.activeFilter.includes(index)) {
+      this.setState({ activeFilter: [...this.state.activeFilter, index] });
+    } else {
+      this.setState({
+        activeFilter: this.state.activeFilter.filter(item => item !== index)
+      });
+    }
+  }
+
+  renderHeader = () => <Header handleVisible={() => this.hanldeModal()} />;
 
   renderItem = ({ item, index }) => (
     <View>
@@ -243,6 +283,98 @@ class Inbox extends Component {
             keyExtractor={(item, index) => item + index}
           />
         </View>
+
+        <Modal
+          transparent
+          visible={this.state.modalVisible}
+          animationType="fade"
+        >
+          <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}>
+            <Animated.View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: this.state.modalValue
+              }}
+            >
+              <View style={{ width: "90%", alignItems: "flex-end" }}>
+                <TouchableOpacity
+                  onPress={() => this.hanldeModalFalse()}
+                  style={{ padding: 10 }}
+                >
+                  <Icon name="close" color="#fff" size={25} />
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  backgroundColor: "#fff",
+                  width: "90%",
+                  shadowOffset: { width: 0, height: 0 },
+                  shadowOpacity: 0.1,
+                  shadowRadius: 1
+                }}
+              >
+                <View
+                  style={{
+                    paddingVertical: 20,
+                    alignItems: "center",
+                    borderBottomColor: "#000",
+                    borderBottomWidth: 0.5
+                  }}
+                >
+                  <Text>FILTER</Text>
+                </View>
+                <View style={{ height: 200 }}>
+                  <FlatList
+                    data={this.state.filter}
+                    extraData={this.state}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item, index }) => (
+                      <TouchableOpacity
+                        style={{
+                          paddingHorizontal: "7%",
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          paddingVertical: 5,
+                          marginTop: index === 0 ? 10 : 0
+                        }}
+                        onPress={() => this.activeFilter(index)}
+                      >
+                        <Text>{item}</Text>
+                        {!this.state.activeFilter.includes(index) ? (
+                          <Icon
+                            name="checkbox-blank-outline"
+                            size={20}
+                            color="#9f9f9f"
+                          />
+                        ) : (
+                          <Icon
+                            name="check-box-outline"
+                            size={20}
+                            color={color.green}
+                          />
+                        )}
+                      </TouchableOpacity>
+                    )}
+                  />
+                </View>
+                <TouchableHighlight
+                  style={{
+                    paddingVertical: 20,
+                    alignItems: "center",
+                    backgroundColor: "#000"
+                  }}
+                  onPress={() => this.hanldeModalFalse()}
+                  underlayColor="rgba(0,0,0,0.9)"
+                >
+                  <Text style={{ color: "#fff" }}>SUBMIT FILTER</Text>
+                </TouchableHighlight>
+              </View>
+            </Animated.View>
+          </View>
+        </Modal>
       </Container>
     );
   }
