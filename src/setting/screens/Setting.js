@@ -13,7 +13,7 @@ class Setting extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container style={{ backgroundColor: color.green }}>
         <ScrollView style={styles.container}>
           <Header />
           <View>

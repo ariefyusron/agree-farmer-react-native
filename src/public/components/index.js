@@ -1,4 +1,5 @@
 import Container from "./Container";
 import BottomTab from "./BottomTab";
+import Header from "./Header";
 
-export { Container, BottomTab };
+export { Container, BottomTab, Header };

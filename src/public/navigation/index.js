@@ -1,26 +1,26 @@
 import React from "react";
-import {
-  createMaterialTopTabNavigator,
-  createAppContainer
-} from "react-navigation";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import Home from "../../home/screens/Home";
-import Inbox from "../../inbox/screens/Inbox";
-import Setting from "../../setting/screens/Setting";
-import { BottomTab } from "../components";
+import BottomTabs from "./BottomTabs";
+import Message from "../../inbox/screens/Message";
+import { Header } from "../components";
 
-const bottomTab = createMaterialTopTabNavigator(
+const appStack = createStackNavigator(
   {
-    Home,
-    Inbox,
-    Setting
+    BottomTabs: {
+      screen: BottomTabs,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Message
   },
   {
-    tabBarComponent: props => <BottomTab {...props} />,
-    tabBarPosition: "bottom",
-    lazy: true,
-    swipeEnabled: false
+    headerMode: "screen",
+    defaultNavigationOptions: props => ({
+      header: <Header {...props} />
+    })
   }
 );
 
-export default createAppContainer(bottomTab);
+export default createAppContainer(appStack);

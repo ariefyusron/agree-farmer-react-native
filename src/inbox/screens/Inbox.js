@@ -192,7 +192,7 @@ class Inbox extends Component {
           />
         </View>
       ) : null}
-      <View
+      <TouchableHighlight
         style={[
           {
             borderBottomColor: "#dbdbdb",
@@ -204,63 +204,67 @@ class Inbox extends Component {
           },
           !item.read ? { backgroundColor: "rgba(28, 165, 80, 0.5)" } : null
         ]}
+        onPress={() => this.props.navigation.navigate("Message")}
+        underlayColor={item.read ? "#f4f4f4" : "rgba(28, 165, 80, 0.4)"}
       >
-        <View
-          style={[
-            {
-              height: 45,
-              width: 45,
-              borderRadius: 45 / 2,
-              justifyContent: "center",
-              alignItems: "center"
-            },
-            item.read ? { backgroundColor: color.green, opacity: 0.5 } : null
-          ]}
-        >
-          <Icon
-            name={item.read ? "email-open-outline" : "email-outline"}
-            color="#fff"
-            size={33}
-            style={{ marginTop: 5 }}
-          />
-        </View>
-        <View
-          style={{
-            paddingLeft: 15,
-            alignItems: "center",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            flex: 1
-          }}
-        >
-          <View>
-            <Text
-              style={{
-                fontSize: 12,
-                color: "#636363",
-                fontWeight: "bold",
-                marginBottom: 3
-              }}
-            >
-              {item.title}
-            </Text>
-            <Text style={{ fontSize: 12, color: "#636363" }}>
-              {item.content}
-            </Text>
+        <>
+          <View
+            style={[
+              {
+                height: 45,
+                width: 45,
+                borderRadius: 45 / 2,
+                justifyContent: "center",
+                alignItems: "center"
+              },
+              item.read ? { backgroundColor: color.green, opacity: 0.5 } : null
+            ]}
+          >
+            <Icon
+              name={item.read ? "email-open-outline" : "email-outline"}
+              color="#fff"
+              size={33}
+              style={{ marginTop: 5 }}
+            />
           </View>
-          <View>
-            <Text style={{ color: "#636363", fontWeight: "bold" }}>
-              {item.time}
-            </Text>
+          <View
+            style={{
+              paddingLeft: 15,
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              flex: 1
+            }}
+          >
+            <View>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: "#636363",
+                  fontWeight: "bold",
+                  marginBottom: 3
+                }}
+              >
+                {item.title}
+              </Text>
+              <Text style={{ fontSize: 12, color: "#636363" }}>
+                {item.content}
+              </Text>
+            </View>
+            <View>
+              <Text style={{ color: "#636363", fontWeight: "bold" }}>
+                {item.time}
+              </Text>
+            </View>
           </View>
-        </View>
-      </View>
+        </>
+      </TouchableHighlight>
     </View>
   );
 
   render() {
     return (
-      <Container>
+      <Container style={{ backgroundColor: color.green }}>
         <View style={styles.container}>
           <SectionList
             ref={list => {
