@@ -4,6 +4,8 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import BottomTabs from "./BottomTabs";
 import Message from "../../inbox/screens/Message";
 import { Header } from "../components";
+import Komuditas from "../../komoditas/screens/Komuditas";
+import { HeaderKomuditas } from "../../komoditas/components";
 
 const appStack = createStackNavigator(
   {
@@ -13,7 +15,13 @@ const appStack = createStackNavigator(
         header: null
       }
     },
-    Message
+    Message,
+    Komuditas: {
+      screen: Komuditas,
+      navigationOptions: props => ({
+        header: <HeaderKomuditas {...props} />
+      })
+    }
   },
   {
     headerMode: "screen",

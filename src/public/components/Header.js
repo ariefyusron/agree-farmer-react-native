@@ -2,7 +2,6 @@ import React from "react";
 import { View, TouchableHighlight, SafeAreaView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import { Container } from ".";
 import color from "../config/color.json";
 
 const Header = ({ navigation }) => (

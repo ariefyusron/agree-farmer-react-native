@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   SectionList,
-  RefreshControl
+  RefreshControl,
+  TouchableHighlight
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -91,7 +92,7 @@ class Home extends Component {
             </Text>
           </View>
         ) : null}
-        <View
+        <TouchableHighlight
           style={{
             backgroundColor: "#fff",
             borderRadius: 5,
@@ -99,6 +100,10 @@ class Home extends Component {
             shadowOpacity: 0.1,
             shadowRadius: 1
           }}
+          onPress={() =>
+            this.props.navigation.navigate("Komuditas", { title: item.title })
+          }
+          underlayColor="#f4f4f4"
         >
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "row", flex: 1 }}>
@@ -186,7 +191,7 @@ class Home extends Component {
               <Icon name={"chevron-right"} color="#bbbbbb" size={25} />
             </View>
           </View>
-        </View>
+        </TouchableHighlight>
       </View>
     </View>
   );

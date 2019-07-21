@@ -40,7 +40,7 @@ class Setting extends Component {
             >
               <Icon name="logout" size={20} color={color.green} />
               <View style={{ paddingLeft: 5 }}>
-                <Text>Keluar</Text>
+                <Text style={{ color: "#636363" }}>Keluar</Text>
               </View>
             </View>
           </View>
