@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  View,
-  TouchableHighlight,
-  SafeAreaView,
-  Text,
-  Alert
-} from "react-native";
+import { View, TouchableHighlight, SafeAreaView, Text } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import IconIonicons from "react-native-vector-icons/Ionicons";
 
 import color from "../../public/config/color.json";
 
@@ -34,7 +27,7 @@ const Header = ({ navigation }) => (
       </TouchableHighlight>
       <View style={{ flex: 1, justifyContent: "center" }}>
         <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 20 }}>
-          {navigation.getParam("title")}
+          Lahan Pertanian
         </Text>
       </View>
       <TouchableHighlight
@@ -44,10 +37,10 @@ const Header = ({ navigation }) => (
           width: "15%",
           alignItems: "center"
         }}
-        onPress={() => Alert.alert("Button Search")}
+        onPress={() => navigation.goBack()}
         underlayColor="rgba(0,0,0,0.1)"
       >
-        <IconIonicons name="ios-search" size={25} color="#fff" />
+        <Icon name="history" size={25} color="#fff" />
       </TouchableHighlight>
     </View>
   </SafeAreaView>

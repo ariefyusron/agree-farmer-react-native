@@ -78,7 +78,7 @@ class Komuditas extends Component {
         borderBottomColor: "#636363",
         borderBottomWidth: 0.3
       }}
-      onPress={() => this.props.navigation.navigate("Komuditas")}
+      onPress={() => this.props.navigation.navigate("Lahan")}
       underlayColor="#f4f4f4"
     >
       <View style={{ flexDirection: "row" }}>

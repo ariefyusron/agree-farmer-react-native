@@ -5,7 +5,8 @@ import BottomTabs from "./BottomTabs";
 import Message from "../../inbox/screens/Message";
 import { Header } from "../components";
 import Komuditas from "../../komoditas/screens/Komuditas";
-import { HeaderKomuditas } from "../../komoditas/components";
+import { HeaderKomuditas, HeaderLahan } from "../../komoditas/components";
+import Lahan from "../../komoditas/screens/Lahan";
 
 const appStack = createStackNavigator(
   {
@@ -20,6 +21,12 @@ const appStack = createStackNavigator(
       screen: Komuditas,
       navigationOptions: props => ({
         header: <HeaderKomuditas {...props} />
+      })
+    },
+    Lahan: {
+      screen: Lahan,
+      navigationOptions: props => ({
+        header: <HeaderLahan {...props} />
       })
     }
   },
